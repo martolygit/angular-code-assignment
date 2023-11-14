@@ -1,27 +1,36 @@
-# AngularCodeAssignment
+# Тестовое задание на позицию Frontend Developer (Angular)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.0.
+Нужно вывести список голосований в виде сетки карточек с фильтром по их категории.
 
-## Development server
+[Внешний вид карточки](https://www.figma.com/file/w8GCmukoTSRqL1ski1Pcs1/poll-card?type=design&node-id=0%3A1&mode=design&t=HxZU5TSDiRHTrTrB-1)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Данные представлены в ApiMockService в виде методов. Методы переопределять и изменять нельзя.
 
-## Code scaffolding
+Каждая запись голосования содержит id категории в поле category_id; getCategories отдает нам данные категорий с соответствующими id (в частности нам интересен alias), но не содержит иконок; getCategoriesMeta содержит мета данные по категории, такие как цвет/иконки и соответствующий категории alias. Для того чтобы получить все данные, нужно сделать 3 запроса и скомпоновать данные соответствующим образом.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Задание рассчитано на ~3 часа, успей сделать сколько сможешь.
 
-## Build
+## Требования
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+1. отобразить в виде сетки карточки голосований со следующим составом полей:
+   - изображение
+   - заголовок
+   - кол-во баллов за голосование
+   - кол-во проголосовавших
+   - имя категории голосования
+   - иконка категории голосования
+   - использовать цвет фона и шрифта соответствующей категории
+1. добавить фильтр по категориям в виде контрола в любом виде, фильтрацию осуществлять на уже полученных данных
+1. приложение должно быть покрыто типами
+1. сделать решение декларативным, с использованием rxjs
+1. учесть, что запросы к данным иногда могут отдавать ошибки, добавить их обработку и ретраи
 
-## Running unit tests
+## Будет плюсом
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- показать навыки вёрстки и без использования сторонних библиотек адаптировать это приложение для малых экранов
+- использовать свежие фичи Ангуляра
+- написанные тесты
 
-## Running end-to-end tests
+---
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Для установки зависимостей используй `npm install`. Для старта приложения `npm run start`.
