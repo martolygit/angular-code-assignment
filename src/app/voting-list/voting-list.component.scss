@@ -1,0 +1,108 @@
+.filter{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+    align-items: center;
+
+    &-category {
+        cursor: pointer;
+        background-color: #b0b0b0;
+        color: #FFFFFF;
+        margin: 10px;
+        fint-size: var(--font-s);
+        font-weight: 400;
+
+        &-selected{
+            font-size: var(--font-m);
+            font-weight: 600;
+            background-color: var(--light-blue);
+            padding: 6px 20px;
+        }
+    }
+
+    &-category:hover {
+        background-color: #808080;
+    }
+}
+
+.cards-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.card{
+    width: 405px;
+    height: 306px;
+    overflow: hidden;
+    margin: 25px;
+    position: relative;
+
+    &-image {
+        width: 405px;
+        height: 200px;
+        border-radius: 16px;
+    }
+
+    &-voters{
+        position: absolute;
+        left: 15px;
+        top: 15px;
+        color: #FFFFFF;
+        font-size: var(--font-s);
+        display: flex;
+        align-items: center;
+    }
+
+    &-points{
+        position: absolute;
+        right: 14px;
+        top: 14px;
+        background-color: #FFFFFF;
+        border-radius: 20px;
+        padding: 5px 8px;
+        font-size: var(--font-s);
+        font-weight: 600;
+        color: #19172F;
+        box-shadow: 0px 3px 3px 0px #9FA4B64D, 0px 1px 1px 0px #BCC2D81F;
+    }
+
+    &-poll{
+        display: flex;
+        padding-top: 10px;
+
+        &-icon{
+            width: 56px;
+            height: 56px;
+        }
+
+        &-description{
+            padding-left: 10px;
+        }
+
+        &-catname{
+            font-size: var(--font-s);
+            font-weight: 600;
+        }
+
+        &-title{
+            font-size: var(--font-m);
+            font-weight: 500;
+            margin-top: 5px;
+        }
+    }
+}
+
+.cat-container{
+    border-radius: 8px;
+    padding: 3px 12px;
+    width: fit-content;
+}
+
+.multiline-ellipsis {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    white-space: pre-wrap;
+}

@@ -1,0 +1,54 @@
+<div class="title">Список голосований</div>
+@if (filteredData$ | async; as cards) {
+    @if (categories$ | async; as categories) {
+        <div class="filter">
+            <div
+                class="filter-category cat-container"
+                [class.filter-category-selected]="selectCategory$.value === 0"
+                (click)="selectCategory$.next(0)"
+            >
+                Все
+            </div>
+            @for(category of categories; track category.id) {
+                <div
+                    class="filter-category cat-container"
+                    [class.filter-category-selected]="selectCategory$.value === category.id"
+                    (click)="selectCategory$.next(category.id)"
+                >
+                    {{category.name}}
+                </div>
+            }
+        </div>
+    }
+    @if (cards.length > 0) {
+        <div class="cards-list">
+            @for (card of cards; track card.id) {
+                <div class="card">
+                    <img class="card-image" [src]="card.image">
+                    <div class="card-voters">
+                        <img src="assets/people.svg">{{ card.voters_count.toLocaleString("fr")}}
+                    </div>
+                    <div class="card-points">
+                        +{{card.points}} Б
+                    </div>
+                    <div class="card-poll">
+                        <img class="card-poll-icon" [src]="card.smallIcon">
+                        <div class="card-poll-description">
+                            <div class="cat-container card-poll-catname"
+                                 [style.background-color]="card.backgroundColor"
+                                 [style.color]="card.textColor"
+                            >
+                                {{card.name}}
+                            </div>
+                            <div class="card-poll-title multiline-ellipsis">{{card.title}}</div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    } @else {
+        <p class="italic">Голосования отсутствуют.</p>
+    }
+} @else {
+    <div class="loader"><span></span></div>
+}

@@ -21,3 +21,5 @@ export type CategoryMeta = {
   backgroundColor: string;
   textColor: string;
 };
+
+export type CardData = Poll & Exclude<PollCategory,Poll> & Omit<CategoryMeta, keyof PollCategory>;
